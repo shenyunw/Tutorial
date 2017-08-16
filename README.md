@@ -38,7 +38,7 @@ tabs.js
 
 wordCloud.js
     - word_list[] : array containing all unique skills as objects, data for jQCloud:
-            {text: "skillname", weight: number, color: "someColor"}
+        - {text: "skillname", weight: number, color: "someColor"}
         - "weight" determines the size of the word (size value can be changed in jqcloud.css)
         - "color" value is not finalized here so any string value can be written here
             - color value is set by a for loop and applied with setTimeout()
