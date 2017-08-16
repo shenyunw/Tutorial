@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='utf-8' />
+	<link href='../fullcalendar.min.css' rel='stylesheet' />
+	<script src='C:\Users\HCI_Lab\Documents\Shenyun\Tutorial\Tutorial\videoData.js'></script>
+	<link href='../fullcalendar.print.min.css' rel='stylesheet' media='print' />
+	<script src='../lib/moment.min.js'></script>
+	<script src='../lib/jquery.min.js'></script>
+	<script src='../fullcalendar.min.js'></script>
+	<script src='C:\Users\HCI_Lab\Documents\Shenyun\Tutorial\Tutorial\js\tabs.js'></script>
+
+
+
+	<script>
+		function embeded(url) {
+			var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+			var match = url.match(regExp);
+			var id, newLink;
+			if (match && match[2].length == 11) {
+				id = match[2];
+				newLink = "https://www.youtube.com/embed/" + id;
+				return newLink;
+			}
+
+		}
+		var key;
+		window.setInterval(function () {
+			key = localStorage.getItem('title');
+			if (key != null) {
+				for (var i = 0; i < videoData.length; i++) {
+					if (videoData[i].title == key) {
+						document.getElementById('iFrameName').src = embeded(videoData[i].link);
+						document.getElementById("title").innerHTML = videoData[i].title;
+						document.getElementById("note").innerHTML = "Notes: <br>" + videoData[i].notes;
+						localStorage.removeItem('title');
+						break;
+					}
+				}
+			}
+		}, 300)
+
+		function formatDate() {
+			var d = new Date(),
+				month = '' + (d.getMonth() + 1),
+				day = '' + d.getDate(),
+				year = d.getFullYear();
+			if (month.length < 2)
+				month = '0' + month;
+			if (day.length < 2)
+				day = '0' + day;
+			return [year, month, day].join('-');
+		}
+
+		$(document).ready(function () {
+			$('#calendar').fullCalendar({
+				header: {
+					left: 'prev,next today',
+					center: 'title',
+					right: 'month,basicWeek,basicDay'
+				},
+				defaultDate: formatDate(),
+				navLinks: true, // can click day/week names to navigate views
+				editable: true,
+				eventLimit: true, // allow "more" link when too many events
+				events: videoData,
+				eventClick: function (calEvent, jsEvent, view) {
+					document.getElementById('iFrameName').src = embeded(calEvent.link);
+					document.getElementById("title").innerHTML = calEvent.title;
+					document.getElementById("note").innerHTML = "Notes: <br>" + calEvent.notes;
+
+				},
+				eventMouseover: function (event, jsEvent, view) {
+					this.alt = event.title;
+				},
+				eventRender: function (event, element) {
+					var time, color, hsl;
+					time = parseInt(event.duration);
+					hsl = ((1 - (time / 100)) * 75);
+					color = 'hsl(333,' + hsl + '%,' + hsl + '%)';
+
+					element.css('background-color', color);
+					
+					element.css('border-color', color);
+
+				},
+
+			});
+		});
+
+	</script>
+
+
+
+</head>
+
+<body>
+
+
+	<div style="float:left" id="calendar"></div>
+	<div class="eventsPane">
+		<h id="title"></h><br>
+		<iframe id="iFrameName" class="video" style="border:none;" allowfullscreen></iframe>
+		<br>
+		<a id="note"></a>
+	</div>
+
+
+</body>
+<style>
+	body {
+		margin: 40px 10px;
+		padding: 0;
+		font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+		font-size: 14px;
+	}
+
+	#viewChange {
+		position: absolute;
+		top: 2%;
+		margin-left: 2%;
+		margin-bottom: 1%;
+	}
+
+	#viewChange button {
+		background-color: #006699;
+		color: white;
+		border: none;
+		padding: 10px 25px;
+		text-decoration: none;
+		font-size: 16px;
+		border-radius: 15px;
+		outline: none;
+	}
+
+	button:hover {
+		cursor: pointer;
+	}
+
+	#calendar {
+		max-width: 45%;
+		overflow-y: hidden;
+	}
+
+	.eventsPane {
+		border-style: none;
+		width: 51%;
+		height: 500px;
+		float: right;
+		margin-right: 2%;
+		margin-top: 2%;
+	}
+
+	#title {
+		position: relative;
+		display: inline-block;
+		font-size: 20px;
+		font-family: Georgia, serif;
+		font-weight: bold;
+	}
+
+	.video {
+		position: relative;
+		display: inline-block;
+		width: 490px;
+		height: 275px;
+		margin-top: 2%;
+	}
+
+	html,
+	body {
+		height: 100%;
+	}
+
+	#note {
+		position: relative;
+		display: inline-block;
+		font-size: 18px;
+		font-family: Georgia, serif;
+	}
+</style>
+
+</html>

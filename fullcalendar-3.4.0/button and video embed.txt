@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<iframe class = "video" src="//www.youtube.com/embed/1sIWez9HAbA"  allowfullscreen></iframe>
+
+<iframe class = "video" src = "//www.youtube.com/embed/4V8BhXU0bow" allowfullscreen></iframe>
+
+<style>
+video{
+	width:420px;
+    height: 315px;
+    frameborder:0px;
+    }
+</style>
+
+
+<script>
+var iframe           = $('iframe:first');
+    var iframe_src       = iframe.attr('src');
+    var youtube_video_id = iframe_src.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/).pop();
+    
+    if (youtube_video_id.length == 11) {
+        var video_thumbnail = $('<img src="//img.youtube.com/vi/'+youtube_video_id+'/0.jpg">');
+        $('body').append(video_thumbnail);
+    }
+</script>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+</style>
+</head>
+<body>
+
+<h2>Clickable Dropdown</h2>
+<p>Click on the button to open the dropdown menu.</p>
+
+<div class="dropdown">
+<button id="myBtn" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+<div class="dropdown">
+	<button id="myBtn1" class="dropbtn">hihi</button>
+  	<div id="myDropdown1" class="dropdown-content">
+    <a href="#food">food</a>
+    <a href="#yum">yum</a>
+    <a href="#hi">hi</a>
+  </div>
+  </div>
+
+<script>
+// Get the button, and when the user clicks on it, execute myFunction
+document.getElementById("myBtn").onclick = function() {myFunction("myDropdown1")};
+document.getElementById("myBtn1").onclick = function(){myFunction("myDropdown")};
+/* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+function myFunction(x) {
+	if(x.localeCompare("myDropdown")){
+    	document.getElementById("myDropdown").classList.toggle("show");}
+     else
+     	document.getElementById("myDropdown1").classList.toggle("show");
+    
+}
+</script>
+
+</body>
+</html>

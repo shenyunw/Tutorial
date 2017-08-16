@@ -1,0 +1,310 @@
+/*basics  */
+html,body{
+    height:100%;
+    background-color:#fff;
+}
+body {
+    margin: 15px 10px;
+	padding: 0;
+	font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+	font-size: 14px;
+    overflow-x: hidden;
+    overflow-y:hidden;
+}
+button:hover{
+	cursor:pointer;
+}
+ul{
+    list-style-type: none;
+}
+.bigContainer{
+    height:100%;
+    width:100%;
+}
+/*calendarView  */
+#calendar {
+	max-width: 45%;
+	margin-top:2%;
+}
+#calendarView{
+    position:relative;
+    height:80%;
+}
+#activity_calendar{
+    border:none;
+    width:100%;
+    height:110%;
+}
+#note{
+	position:relative;
+    font-size:18px;
+	font-family: Georgia,serif;
+}
+.eventsPane{
+	border-style: none;
+	width:51%;
+	height:500px;
+	float:right;
+	margin-right:2%;
+	margin-top:2%;
+}
+#title{
+	position:relative;
+	display:inline-block;
+	font-size: 20px;
+	font-family:Georgia, serif;
+	font-weight:bold;
+}
+
+/*home  */
+#home{
+    position:relative;
+    height:85%;
+}
+
+/*TREE  */
+#tree{
+	position: relative;
+	display: flex;
+    width:40%;
+    height:90%;
+    float:left;
+    text-align: center;
+    bottom:0px;
+    overflow:hidden;
+}
+
+.sprout{
+	position:absolute;
+	align-self:flex-end;
+	left:30%;
+}
+#rootTree{
+	position:absolute;
+	align-self:flex-end;
+	height:40%;
+	left:30%;
+}
+#wordList{
+	position:absolute;
+	align-self:flex-end;
+}
+/*tab icons  */
+.fa{
+    font-size: 24px;
+    color:#765371;
+}
+.fa-list-ul, .fa-pie-chart{
+    cursor:pointer;
+}
+/* tabs */
+.tabs{
+    position: relative;
+    width: 60%;
+    float:right;
+}
+.tab.active{
+    background-color:#e7e7e7;
+    text-align: center;
+}
+.myTabs{
+    position:relative;
+    width:100%;
+}
+.tab2.active{
+    background-color:#e7e7e7;
+    text-align: center;
+}
+
+.tab2{
+    position: relative;
+    background-color: #b3b3b3;
+    float: left;
+    display: inline-block;
+    width: 49%;
+    height: 100%;
+    text-align: center;
+    line-height: 90px;
+    margin-left: 1%;  
+}
+ 
+.tab2 a{
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tab2 a:hover{
+    background-color: transparent;
+    color: #765371;
+}
+.tab{
+    background-color:#b3b3b3;
+    float:left;
+    display:inline-block;
+    width:48%;
+    height:75px;
+    text-align: center;
+    line-height: 90px;
+    margin:1%;
+}
+#myTabs{
+    position: relative;
+    width: 100%;
+    height: 75px;
+    right: 0px;
+    padding: 0px 0px 0px 0px;
+}
+#innerTabs{
+    position:relative;
+    width:60%;
+	height:100%;
+    float:right;
+}
+/*inner-tab content  */
+#mainContent{
+    position: relative;
+    background-color: #e7e7e7;
+    top: -25px;
+    width: 99%;
+    height: 90%;
+    right: 0;
+    margin-left:1%;
+}
+.innerPage{
+    display:none;
+    position:relative;
+    height:100%;
+    
+}
+.innerPage.active{
+    display:block;
+    position:relative;
+    width:100%;
+    height:100%;
+}
+/*innerpage graphs  */
+#progress{
+	height:100%;
+	margin:0;
+}
+#weekly_progress {
+    position:absolute;
+	width		: 45%;
+	height		: 250px;
+	font-size	: 20px;
+	top:20%;
+}	
+#monthlyData{
+    position:absolute;
+    width:55%;
+    height:50%;
+    left:45%;
+    top:1%;
+}
+#weeklyData{
+    position:absolute;
+    width:55%;
+    height:50%;
+    left:45%;
+    top:50%;
+}
+/*skillList  */
+#skills{
+	padding: 5px 0px 5px 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 90%;
+    top: 7%;
+}
+#skill_list{
+	list-style-type: none;
+	width:45%;
+    height:100%;
+    float:left;
+    padding: 0 0 0 5%;
+}
+.listViewSkill{
+	display:flex;
+	width:100%;
+	height:70px;
+	align-items:center;
+    padding:0 0 25px 0px;
+    margin:0;
+    margin-bottom:3%;
+}
+.circle_label{
+	width:55px;
+	height:55px;
+	display:flex;
+	justify-content: center;
+	align-items:center;
+	background: green;
+	-moz-border-radius:50px;
+	-webkit-border-radius:50px;
+	border-radius:50px;
+	margin-top:2%;
+	margin-bottom:2%;
+	color:white;
+	font-size: 25px;
+	text-decoration: none;
+}
+.listViewSkill a{
+	text-decoration: none;
+}
+.listViewSkill a:hover{
+    cursor:pointer;
+}
+.skill_title{
+	width:70%;
+	margin-left:3%;
+	font-size:33px;
+	text-decoration: none;
+}
+
+.skill_list li{
+	position:relative;
+	width:100%;
+}
+/*skill List Video View  */
+#video_List{
+    
+    width:54%;
+    float: right;
+    top:0px;
+}
+#video_List h1{
+    position:fixed;
+    top:115px;
+    color:#765371;
+}
+.video{
+	position:relative;
+	width:100%;
+	height: auto;
+    margin-top:2%;
+    margin-bottom:5%;
+}
+.video h2{
+    padding: 0px 0px 0px;
+    margin:0;
+}
+.video img{
+    width:50%;
+    height:auto;
+}
+.watchHere{
+    position: absolute;
+    bottom: 0;
+    background-color: #765371;
+    border-color: white;
+    border-style: solid;
+    width: 25%;
+    height: auto;
+    color: white;
+    font-family: "Verdana";
+    font-size: 90%;
+    outline: none;
+    margin-left: 2%;
+}
