@@ -32,12 +32,12 @@ $(function () {
 
 function growTree() {
   if (word_list.length >= 5) {
-    document.getElementById("rootTree").src = "../images/treeTrunk.png";
+    document.getElementById("rootTree").src = "images/treeTrunk.png";
     document.getElementById("rootTree").classList.add("tree");
     document.getElementById("wordList").style.bottom = "180px";
   }
   else {
-    document.getElementById("rootTree").src = "../images/sprout.png";
+    document.getElementById("rootTree").src = "images/sprout.png";
     document.getElementById("rootTree").classList.add("sprout");
     document.getElementById("wordList").style.bottom = "85px";
   }
