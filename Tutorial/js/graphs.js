@@ -150,7 +150,7 @@ var chart5 = AmCharts.makeChart("weeklyData", {
     "type": "serial",
     "theme": "light",
     "allLabels": [{
-        "text": "Last 6 Months",
+        "text": "Last Week",
         "align": "left",
         "bold": true,
         "size": 14,
